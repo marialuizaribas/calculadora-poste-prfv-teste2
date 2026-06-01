@@ -1,0 +1,579 @@
+/* ================================================
+   RESET E BASE
+================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --azul:        #2563eb;
+  --azul-claro:  #eff6ff;
+  --azul-borda:  #bfdbfe;
+  --verde:       #16a34a;
+  --verde-claro: #f0fdf4;
+  --verde-borda: #bbf7d0;
+  --amarelo:     #ca8a04;
+  --amarelo-claro:#fefce8;
+  --amarelo-borda:#fef08a;
+  --vermelho:    #dc2626;
+  --verm-claro:  #fef2f2;
+  --verm-borda:  #fecaca;
+  --cinza-100:   #f3f4f6;
+  --cinza-200:   #e5e7eb;
+  --cinza-400:   #9ca3af;
+  --cinza-600:   #4b5563;
+  --cinza-800:   #1f2937;
+  --branco:      #ffffff;
+  --fonte:       'Segoe UI', system-ui, -apple-system, sans-serif;
+  --sombra:      0 1px 3px rgba(0,0,0,0.1);
+}
+
+body {
+  font-family: var(--fonte);
+  font-size: 14px;
+  color: var(--cinza-800);
+  background: var(--cinza-100);
+  line-height: 1.5;
+}
+
+/* ================================================
+   TELA DE LOGIN
+================================================ */
+#tela-login {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+}
+
+.login-box {
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 40px;
+  width: 360px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.logo-icone {
+  font-size: 32px;
+  color: var(--azul);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.login-logo h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cinza-800);
+}
+
+.login-logo p {
+  font-size: 13px;
+  color: var(--cinza-400);
+  margin-top: 4px;
+}
+
+.login-rodape {
+  text-align: center;
+  font-size: 13px;
+  color: var(--cinza-400);
+  margin-top: 16px;
+}
+
+.login-rodape a { color: var(--azul); text-decoration: none; }
+
+/* ================================================
+   CABEÇALHO DO APP
+================================================ */
+.cabecalho {
+  height: 52px;
+  background: var(--cinza-800);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.cabecalho-esquerda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+
+.cabecalho-esquerda .logo-icone { color: #60a5fa; font-size: 20px; }
+
+.cabecalho-titulo {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.cabecalho-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.usuario-nome {
+  font-size: 13px;
+  color: #d1d5db;
+}
+
+/* ================================================
+   LAYOUT PRINCIPAL (DOIS PAINÉIS)
+================================================ */
+.layout-principal {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: calc(100vh - 52px);
+  overflow: hidden;
+}
+
+/* ================================================
+   PAINEL ESQUERDO: ENTRADAS
+================================================ */
+.painel-entradas {
+  background: var(--branco);
+  border-right: 1px solid var(--cinza-200);
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+
+.entradas-header {
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid var(--cinza-200);
+  background: var(--cinza-100);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.entradas-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cinza-800);
+}
+
+.entradas-header p {
+  font-size: 12px;
+  color: var(--cinza-400);
+  margin-top: 2px;
+}
+
+/* Blocos de seção */
+.bloco {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--cinza-200);
+}
+
+.bloco-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza-800);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.bloco-numero {
+  width: 20px;
+  height: 20px;
+  background: var(--azul);
+  color: white;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bloco-ajuda {
+  font-size: 11px;
+  color: var(--cinza-400);
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+/* Campos de entrada */
+.campo {
+  margin-bottom: 10px;
+}
+
+.campo label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--cinza-600);
+  margin-bottom: 4px;
+}
+
+.campo-unidade {
+  display: flex;
+  gap: 0;
+}
+
+.campo-unidade input {
+  flex: 1;
+  padding: 7px 10px;
+  font-size: 13px;
+  border: 1px solid var(--cinza-200);
+  border-right: none;
+  border-radius: 6px 0 0 6px;
+  background: var(--branco);
+  color: var(--cinza-800);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.campo-unidade input:focus {
+  border-color: var(--azul);
+}
+
+.unidade {
+  padding: 7px 10px;
+  font-size: 11px;
+  color: var(--cinza-400);
+  background: var(--cinza-100);
+  border: 1px solid var(--cinza-200);
+  border-radius: 0 6px 6px 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Dica (?) */
+.dica {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--cinza-200);
+  color: var(--cinza-600);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: help;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* Tabela de camadas */
+.tabela-camadas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.campo-camada {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-camada label {
+  font-size: 11px;
+  color: var(--cinza-400);
+  margin-bottom: 2px;
+}
+
+.campo-camada input {
+  padding: 5px 8px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid var(--cinza-200);
+  border-radius: 6px;
+  text-align: center;
+  background: var(--cinza-100);
+  color: var(--cinza-800);
+  outline: none;
+}
+
+.campo-camada input:focus {
+  border-color: var(--azul);
+  background: var(--azul-claro);
+}
+
+/* Botão calcular */
+.botao-calcular-wrapper {
+  padding: 16px 20px;
+}
+
+.btn-calcular {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--azul);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.15s;
+}
+
+.btn-calcular:hover { background: #1d4ed8; }
+.btn-calcular:active { transform: scale(0.99); }
+
+/* ================================================
+   PAINEL DIREITO: RESULTADOS
+================================================ */
+.painel-resultados {
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--cinza-100);
+}
+
+/* Estado inicial */
+.estado-inicial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60%;
+  text-align: center;
+  color: var(--cinza-400);
+  gap: 12px;
+}
+
+.estado-inicial-icone { font-size: 48px; opacity: 0.3; }
+.estado-inicial h3 { font-size: 16px; font-weight: 600; color: var(--cinza-600); }
+.estado-inicial p { font-size: 13px; max-width: 360px; line-height: 1.6; }
+
+/* Seções de resultado */
+.secao-titulo {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cinza-600);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 24px 0 12px;
+}
+
+.secao-titulo:first-of-type { margin-top: 0; }
+
+/* Grade de métricas */
+.grade-metricas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.cartao-metrica {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.metrica-rotulo {
+  font-size: 11px;
+  color: var(--cinza-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.metrica-valor {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--cinza-800);
+  line-height: 1;
+}
+
+.metrica-status {
+  font-size: 11px;
+  margin-top: 6px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.status-ok    { background: var(--verde-claro); color: var(--verde); }
+.status-aviso { background: var(--amarelo-claro); color: var(--amarelo); }
+.status-erro  { background: var(--verm-claro); color: var(--vermelho); }
+
+/* Aviso de aprovação geral */
+.aviso {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.aviso-aprovado { background: var(--verde-claro); border: 1px solid var(--verde-borda); color: var(--verde); }
+.aviso-reprovado { background: var(--verm-claro); border: 1px solid var(--verm-borda); color: var(--vermelho); }
+
+/* Cartão de gráfico */
+.cartao-grafico {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.grafico-titulo {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--cinza-600);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.grade-graficos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+/* Tabela de resultados */
+.tabela-wrapper {
+  background: var(--branco);
+  border: 1px solid var(--cinza-200);
+  border-radius: 10px;
+  overflow: auto;
+  margin-bottom: 4px;
+}
+
+.tabela-resultados {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.tabela-resultados th {
+  padding: 10px 12px;
+  background: var(--cinza-100);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cinza-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--cinza-200);
+  text-align: left;
+}
+
+.tabela-resultados td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--cinza-100);
+  color: var(--cinza-800);
+}
+
+.tabela-resultados tr:last-child td { border-bottom: none; }
+.tabela-resultados tr:hover td { background: var(--cinza-100); }
+
+.cel-ok      { color: var(--verde); font-weight: 600; }
+.cel-aviso   { color: var(--amarelo); font-weight: 600; }
+.cel-erro    { color: var(--vermelho); font-weight: 600; }
+.cel-cinza   { color: var(--cinza-400); }
+
+/* Estrutura recomendada */
+.cartao-estrutura {
+  background: var(--cinza-800);
+  color: #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 13px;
+  line-height: 1.8;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 4px;
+}
+
+.cartao-estrutura strong { color: #60a5fa; }
+
+/* Botão PDF */
+.botao-pdf-wrapper {
+  margin: 20px 0 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-pdf {
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--cinza-800);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-pdf:hover { background: #374151; }
+
+/* ================================================
+   BOTÕES GENÉRICOS
+================================================ */
+.btn-primario {
+  width: 100%;
+  padding: 11px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--azul);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.15s;
+}
+
+.btn-primario:hover { background: #1d4ed8; }
+
+.btn-secundario {
+  padding: 6px 14px;
+  font-size: 12px;
+  background: transparent;
+  color: #d1d5db;
+  border: 1px solid #4b5563;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-secundario:hover { background: #374151; color: white; }
+
+/* Erro */
+.erro {
+  color: var(--vermelho);
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ================================================
+   SCROLLBAR CUSTOMIZADA
+================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--cinza-200); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cinza-400); }
+
+/* ================================================
+   RESPONSIVO (telas menores)
+================================================ */
+@media (max-width: 900px) {
+  .layout-principal { grid-template-columns: 1fr; height: auto; }
+  .painel-entradas { border-right: none; border-bottom: 1px solid var(--cinza-200); }
+  .grade-metricas { grid-template-columns: 1fr 1fr; }
+  .grade-graficos { grid-template-columns: 1fr; }
+}
